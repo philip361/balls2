@@ -5,40 +5,29 @@ public class Spieler {
     private GLTastatur tastatur;
 
     public Spieler() {
-      spieler = new GLZylinder (0,20,0,100,40,"src/img/Ufo362.jpg/");
-      spieler.drehe(90,0,0);
-
-
-
-
-
-
+        spieler = new GLZylinder(0, 20, 0, 100, 40, "src/img/Ufo362.jpg");
+        spieler.drehe(90, 0, 0);
 
 
     }
 
 
-    public void bewege(double speed) {
-
-        if (tastatur.links() && spieler.gibX() > 750) {
-            spieler.verschiebe( 1* speed,0,0);}
-            if (tastatur.rechts() && spieler.gibX() > -750){
-                spieler.verschiebe( -1* speed,0,0);}
-                if (tastatur.oben() && spieler.gibZ() > 750){
-                    spieler.verschiebe( 0,0,1* speed);}
-                    if (tastatur.links() && spieler.gibZ() > -750){
-                        spieler.verschiebe( 0 ,0,-1* speed);}
+    public void bewegeLinks() {
+        spieler.verschiebe(-1.5, 0, 0);
     }
 
-    public double gibX()  {return spieler.gibX();}
-
-    public double gibY(){
-        return spieler.gibY();
+    public void bewegeRechts() {
+        spieler.verschiebe(1.5, 0, 0);
     }
 
-    public double gibZ() {
-        return spieler.gibZ();
+    public void bewegeOben() {
+        spieler.verschiebe(0, 0, -1.5);
     }
 
-
+    public void bewegeUnten() {
+        spieler.verschiebe(0, 0, 1.5);
+    }
 }
+
+
+

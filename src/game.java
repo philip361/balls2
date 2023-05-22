@@ -9,11 +9,11 @@ public class game {
     private Kugeln[] kugel;
 
     public game() {
-        kamera = new GLEntwicklerkamera();
+        kamera = new GLKamera();
         kamera.setzePosition(0, 1500, 1500);
 
         licht = new GLLicht();
-        himmel = new GLHimmel("src/img/Brim.jpg/");
+        himmel = new GLHimmel("src/img/Sterne.jpg");
         tastatur = new GLTastatur();
 
         Spielfeld spielfeld = new Spielfeld(2000, 2000);
@@ -25,33 +25,42 @@ public class game {
             kugel[i] = new Kugeln();
         }
         spieler = new Spieler();
+bewege();
 
-        fuehreAus();
     }
 
 
-        public void fuehreAus () {
+    public void bewege()
+    {
+            while (!tastatur.esc()) {
 
-            while (!tastatur.esc()) ;{
-
-
-                spieler.bewege(1);
-
+                if (tastatur.links()) {
+                    spieler.bewegeLinks();
+                }
+                if (tastatur.rechts()) {
+                    spieler.bewegeRechts();
+                }
+                if (tastatur.oben()) {
+                    spieler.bewegeOben();
+                }
+                if (tastatur.unten()) {
+                    spieler.bewegeUnten();
+                }
 
                 for (int i = 0; i < kugel.length; i++) {
                     kugel[i].bewege(1);
                 }
 
-
-
-
+                Sys.warte();
             }
-            Sys.warte();
+
+        }
         }
 
 
 
 
 
-}
+
+
 

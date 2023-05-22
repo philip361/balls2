@@ -8,21 +8,21 @@ public class Kugeln {
 
     public Kugeln() {
         kugel = new GLZylinder(-750 + Math.random() * 1500, 20, -750 + Math.random() * 1500, 25,1);
-        kugel.setzeTextur("src/img/img.png");
+        kugel.setzeTextur("src/img/kugeltextur.jpg");
         kugel.setzeDrehung(90,0,180);
 
     }
 
 
     public void bewege(double speed) {
-        kugel.verschiebe(-75 + Math.random() * 150, 0, -75 + Math.random() * 150);
+        kugel.verschiebe(-5  * speed, 0, -5  * speed);
 
 
     }
 
     public void abprallen(){
 
-   //    if() kugel.gibX > feld.breite
+     // if(); kugel.gibX > feld.breite
 
 
     }
