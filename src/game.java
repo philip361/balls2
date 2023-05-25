@@ -5,6 +5,8 @@ public class game {
     private GLHimmel himmel;
     private GLTastatur tastatur;
 
+    private GLQuader quader;
+
     private Spieler spieler;
     private Kugeln[] kugel;
 
@@ -16,16 +18,21 @@ public class game {
         himmel = new GLHimmel("src/img/Sterne.jpg");
         tastatur = new GLTastatur();
 
-        Spielfeld spielfeld = new Spielfeld(2000, 2000);
+
+        //Box
 
 
-        kugel = new Kugeln[100];
 
-        for (int i = 0; i < kugel.length; i++) {
-            kugel[i] = new Kugeln();
-        }
+        Spielfeld spielfeld = new Spielfeld();
+
+
+        kugel = new Kugeln[361];
         spieler = new Spieler();
-bewege();
+        for (int i = 0; i < kugel.length; i++) {
+            kugel[i] = new Kugeln(spieler,spielfeld);
+        }
+
+      bewege();
 
     }
 
@@ -48,7 +55,7 @@ bewege();
                 }
 
                 for (int i = 0; i < kugel.length; i++) {
-                    kugel[i].bewege(1);
+                    kugel[i].bewege();
                 }
 
                 Sys.warte();
